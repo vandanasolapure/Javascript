@@ -1,0 +1,135 @@
+  alert() in the Browser Console
+✅ What it is:
+alert() is a built-in browser function that shows a popup dialog with a message.
+
+🔸 Example:
+js
+Copy
+Edit
+alert("Hello from browser!");
+🔸 Result:
+A popup message box appears with “Hello from browser!”
+
+It pauses execution until you click "OK"
+
+📌 Used For:
+Simple debugging
+
+User notifications
+
+⚙️ alert() in Node.js
+❌ Not Available:
+Node.js is a server-side environment — it has no GUI, so alert() doesn’t exist.
+
+🔸 Example:
+js
+Copy
+Edit
+alert("Hello from Node.js");
+🔸 Result:
+vbnet
+Copy
+Edit
+ReferenceError: alert is not defined
+📌 Why?
+alert() is part of the window object, which doesn’t exist in Node.js.
+
+Node is built for backend tasks — use console.log() or other logging tools.
+
+✅ Alternatives in Node.js
+Instead of alert(), use:
+
+js
+Copy
+Edit
+console.log("Hello from Node.js");
+Or show messages with libraries like:
+
+inquirer (for interactive CLI)
+
+readline
+
+chalk (for colored console output)
+
+🔁 Quick Summary
+Feature	Browser	Node.js
+alert()	✅ Shows popup	❌ Not defined (error)
+Use case	UI Notifications	Use console.log()
+Environment	GUI (window object)	CLI (no GUI)
+
+
+
+
+
+
+
+
+
+
+---------------------- What is the window Object?----------------------
+
+
+
+In browsers, the window object is the global object. It represents the browser window (or tab) and provides access to everything in the web page environment.
+
+📦 Think of it as:
+A giant container that holds all browser-related functionality like:
+
+alert()
+
+console
+
+document (DOM)
+
+setTimeout()
+
+localStorage, etc.
+
+🔹 Example:
+js
+Copy
+Edit
+alert("Hello");
+is actually the same as:
+
+js
+Copy
+Edit
+window.alert("Hello");
+Because:
+
+js
+Copy
+Edit
+alert === window.alert  // ✅ true
+🧠 What is in window?
+js
+Copy
+Edit
+console.log(Object.keys(window));
+You'll see many browser APIs:
+
+window.location → Current URL info
+
+window.document → HTML DOM
+
+window.navigator → Browser info
+
+window.localStorage → Local storage
+
+⚠️ In Node.js
+There is no window, because Node doesn't run in a browser.
+
+Instead, the global object in Node is called global.
+
+js
+Copy
+Edit
+// Node.js
+console.log(global); // Shows all global properties
+🔁 Summary
+Feature	window (Browser)	global (Node.js)
+Scope	Web browser only	Node.js (server-side)
+Has alert()?	✅ Yes	❌ No
+DOM access?	✅ (via window.document)	❌ No DOM
+Environment	GUI + user interactions	CLI, backend, servers

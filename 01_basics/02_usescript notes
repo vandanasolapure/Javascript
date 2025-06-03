@@ -1,0 +1,68 @@
+
+📌 "use strict" in JavaScript — Summary Notes
+🔹 What is it?
+A directive ("use strict") that enables Strict Mode — a way to catch errors & write secure JS.
+
+🔹 Syntax:
+js
+Copy
+Edit
+"use strict"; // at top of file or function
+🔹 Why needed?
+In old JS (ES5 and before), JS was:
+
+Lenient (allowed undeclared vars, silent bugs)
+
+In older JavaScript (before strict mode), the language was very forgiving — even if you made a mistake, it wouldn’t show an error.
+
+1. ✅ Undeclared Variables Allowed
+You could use a variable without declaring it:
+
+js
+Copy
+Edit
+x = 5; // ❌ Not declared with let/var/const
+console.log(x); // Works, but bad!
+JavaScript would silently create a global variable, which is dangerous in big apps — can cause conflicts or bugs.
+
+2. ❌ Silent Bugs
+JS would ignore mistakes instead of warning you:
+
+js
+Copy
+Edit
+Object.defineProperty({}, 'prop', { writable: false }).prop = 123;
+// This fails silently – doesn't throw an error without "use strict"
+So even if your code isn’t working as intended, JavaScript wouldn't complain — making it hard to debug.
+
+Error-prone in large codebases
+
+So, "use strict" was introduced in ES5 (2009) to:
+
+Prevent bad practices
+
+Make JS more predictable
+
+In modern JS (ES6+ / 2015+):
+
+Modules (.mjs) are strict by default
+
+"use strict" still needed in regular scripts
+
+✅ Key Features / Benefits
+🔒 Feature	🔍 Description
+❌ No undeclared vars	x = 10; → Error (must use let, const, var)
+❌ No duplicate params	function f(a, a) → Error
+❌ No silent fails	    Assigning to read-only props → Error
+❌ this is not window	In functions, this is undefined (safer)
+❌ No with keyword	    Disallowed (causes scope confusion)
+❌ Safer eval()	        Doesn’t modify outer scope
+
+🧠 Extra Tips
+Add "use strict" at top of your script or function.
+
+In ES6+ modules: Strict mode is on by default, no need to write it.
+
+Helps in debugging and avoiding silent bugs in large apps.
+
+
